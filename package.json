@@ -4,9 +4,9 @@
   "description": "Display a chart that dynamically trends values from stdout",
   "author": "Tabcorp Digital Team",
   "license": "MIT",
-  "main": "cli-plot.js",
+  "main": "index.js",
   "bin": {
-    "cli-plot": "cli-plot.js"
+    "cli-plot": "index.js"
   },
   "dependencies": {
     "babar": "0.0.3",

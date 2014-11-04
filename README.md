@@ -28,13 +28,13 @@ You can pipe it into `cli-trend` to generate a chart right there in your console
 ## Arguments
 
 - `cli-trend -n 10`: number of values printed on screen
-- `cli-trend -w 120`: graph width (number of columns)
+- `cli-trend -w 120`: graph width (number of terminal columns)
 
 ## Advanced usage
 
 - Watching the output of another program
 
-Unfortunately, the `watch` command writes ANSI escape codes regardless of whether or not the output is a TTY. This doesn't play well with printing charts. You'll need to use different way to watch `stdout`, for example [cli-repeat]().
+Unfortunately, the `watch` command writes ANSI escape codes regardless of whether or not the output is a TTY. This doesn't play well with printing charts. You'll need to use different way to watch `stdout`, for example [cli-repeat](https://github.com/TabDigital/cli-repeat).
 
 ```bash
 cli-repeat -n 1 "echo $RANDOM" | stdin-chart
