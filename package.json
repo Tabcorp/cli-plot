@@ -1,0 +1,16 @@
+{
+  "name": "cli-trend",
+  "version": "0.0.1",
+  "description": "Display a chart that dynamically trends values from stdout",
+  "author": "Tabcorp Digital Team",
+  "license": "MIT",
+  "main": "cli-plot.js",
+  "bin": {
+    "cli-plot": "cli-plot.js"
+  },
+  "dependencies": {
+    "babar": "0.0.3",
+    "charm": "~1.0.0",
+    "fixedqueue": "0.0.1"
+  }
+}
