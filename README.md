@@ -1,9 +1,9 @@
-# cli-trend
+# cli-plot
 
-Display a chart that dynamically trends values from stdout.
+Plot values from stdint directly into your terminal.
 
 ```
-npm install -g cli-trend
+npm install -g cli-plot
 ```
 
 ## Usage
@@ -17,33 +17,59 @@ for i in {1..50}; do
 done
 ```
 
-You can pipe it into `cli-trend` to generate a chart right there in your console. It will push new values from the right every time they arrive on stdin.
+Or the following `Node` program that outputs a sine wave:
 
-```bash
-./random.sh | cli-trend
+```js
+var i = 0;
+setInterval(function() {
+  var value = Math.abs(Math.sin(i += 0.2));
+  process.stdout.write(value + '\n');
+}, 100);
 ```
 
-![Screenshot](https://raw.github.com/TabDigital/cli-trend/master/screenshot.gif)
+You can pipe it into `plot` to generate a chart right there in your terminal.
+It will push new values from the right every time they arrive on stdin.
+Note: values must be separated by a new line.
+
+```bash
+node sine.js | plot
+```
+
+![Screenshot](https://raw.github.com/TabDigital/cli-plot/master/screenshot.gif)
 
 ## Arguments
 
-- `cli-trend -n 10`: number of values printed on screen
-- `cli-trend -w 120`: graph width (number of terminal columns)
+- `plot -n 10`: number of values printed on screen
+- `plot -w 120`: graph width (in terminal columns)
+- `plot -h 10`: graph height (in terminal rows)
 
 ## Advanced usage
 
-- Watching the output of another program
+- Printing averages
 
-Unfortunately, the `watch` command writes ANSI escape codes regardless of whether or not the output is a TTY. This doesn't play well with printing charts. You'll need to use different way to watch `stdout`, for example [cli-repeat](https://github.com/TabDigital/cli-repeat).
+If the input program outputs numbers very often, the chart will probably move too fast.
+You can pipe the output into a tool like [cli-avg](https://github.com/TabDigital/cli-avg).
 
-```bash
-cli-repeat -n 1 "echo $RANDOM" | stdin-chart
+```
+./random.sh | avg -t 1s | plot
 ```
 
-- Getting a specific value from a JSON document
+- Watching the output of another program
+
+One common usage it to run a command on a set interval, and plot its results.
+
+Unfortunately, the `watch` command also outputs debug info and ANSI escape codes,
+which doesn't play well with `plot`. You'll need to use different way to watch `stdout`,
+for example [cli-repeat](https://github.com/TabDigital/cli-repeat).
+
+```bash
+repeat -t 1s "echo $RANDOM" | plot
+```
+
+- Getting values from JSON documents
 
 The easiest way is to use tools like [json](http://trentm.com/json/) or [jQ](http://stedolan.github.io/jq/).
 
 ```bash
-some_program | json "path.to.value" | stdin-chart
+some_program | json "path.to.value" | plot
 ```

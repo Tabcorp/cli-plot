@@ -1,16 +1,18 @@
 {
-  "name": "cli-trend",
-  "version": "0.0.1",
-  "description": "Display a chart that dynamically trends values from stdout",
+  "name": "cli-plot",
+  "version": "1.0.0",
+  "description": "Plot values from stdin directly in your terminal",
   "author": "Tabcorp Digital Team",
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "cli-plot": "index.js"
+    "plot": "index.js"
   },
   "dependencies": {
     "babar": "0.0.3",
     "charm": "~1.0.0",
-    "fixedqueue": "0.0.1"
+    "fixedqueue": "0.0.1",
+    "split": "~0.3.1",
+    "optimist": "~0.6.1"
   }
 }
