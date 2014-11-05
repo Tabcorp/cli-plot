@@ -22,7 +22,7 @@ Or the following `Node` program that outputs a sine wave:
 ```js
 var i = 0;
 setInterval(function() {
-  var value = Math.abs(Math.sin(i += 0.2));
+  var value = Math.sin(i += 0.2);
   process.stdout.write(value + '\n');
 }, 100);
 ```
@@ -39,7 +39,7 @@ node sine.js | plot
 
 ## Arguments
 
-- `plot -w 100`: number of values (width of the graph)
+- `plot -w 100`: graph width (in terminal rows)
 - `plot -h 10`: graph height (in terminal rows)
 
 ## Advanced usage
@@ -49,16 +49,16 @@ node sine.js | plot
 If the input program outputs numbers very often, the chart will probably move too fast.
 You can pipe the output into a tool like [cli-avg](https://github.com/TabDigital/cli-avg).
 
-```
+```bash
 ./random.sh | avg -t 1s | plot
 ```
 
 - Watching the output of another program
 
-One common usage it to run a command on a set interval, and plot its results.
+One common usage is to run a command at a given rate, and plot its results.
 
 Unfortunately, the `watch` command also outputs debug info and ANSI escape codes,
-which doesn't play well with `plot`. You'll need to use different way to watch `stdout`,
+which doesn't play well with `plot`. You'll need to use different way to watch that command,
 for example [cli-repeat](https://github.com/TabDigital/cli-repeat).
 
 ```bash
