@@ -1,6 +1,6 @@
 # cli-plot
 
-Plot values from stdint directly into your terminal.
+Plot values from `stdin` directly into your terminal.
 
 ```
 npm install -g cli-plot
@@ -8,7 +8,7 @@ npm install -g cli-plot
 
 ## Usage
 
-Say you have the following shell script that outputs numbers on `stdout`
+Say you have the following shell script that outputs numbers on `stdout`:
 
 ```bash
 for i in {1..50}; do
@@ -29,7 +29,7 @@ setInterval(function() {
 
 You can pipe it into `plot` to generate a chart right there in your terminal.
 It will push new values from the right every time they arrive on stdin.
-Note: values must be separated by a new line.
+Note: input values must be separated by a new line.
 
 ```bash
 node sine.js | plot
@@ -39,8 +39,7 @@ node sine.js | plot
 
 ## Arguments
 
-- `plot -n 10`: number of values printed on screen
-- `plot -w 120`: graph width (in terminal columns)
+- `plot -w 100`: number of values (width of the graph)
 - `plot -h 10`: graph height (in terminal rows)
 
 ## Advanced usage
