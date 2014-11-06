@@ -47,7 +47,7 @@ node sine.js | plot
 - Printing averages
 
 If the input program outputs numbers very often, the chart will probably move too fast.
-You can pipe the output into a tool like [cli-avg](https://github.com/TabDigital/cli-avg).
+You can pipe the output into a tool like [cli-average](https://github.com/TabDigital/cli-average).
 
 ```bash
 ./random.sh | avg -t 1s | plot
@@ -59,10 +59,10 @@ One common usage is to run a command at a given rate, and plot its results.
 
 Unfortunately, the `watch` command also outputs debug info and ANSI escape codes,
 which doesn't play well with `plot`. You'll need to use different way to watch that command,
-for example [cli-repeat](https://github.com/TabDigital/cli-repeat).
+for example [cli-interval](https://github.com/TabDigital/cli-interval).
 
 ```bash
-repeat -t 1s "echo $RANDOM" | plot
+interval -t 1s "echo $RANDOM" | plot
 ```
 
 - Getting values from JSON documents
