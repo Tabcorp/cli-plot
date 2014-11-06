@@ -2,6 +2,10 @@
 
 Plot values from `stdin` directly into your terminal.
 
+[![NPM](http://img.shields.io/npm/v/cli-plot.svg?style=flat)](https://npmjs.org/package/cli-plot)
+[![License](http://img.shields.io/npm/l/cli-plot.svg?style=flat)](https://github.com/TabDigital/cli-plot)
+[![Dependencies](http://img.shields.io/david/TabDigital/cli-plot.svg?style=flat)](https://david-dm.org/TabDigital/cli-plot)
+
 ```
 npm install -g cli-plot
 ```
