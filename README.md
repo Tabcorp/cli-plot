@@ -66,7 +66,7 @@ which doesn't play well with `plot`. You'll need to use different way to watch t
 for example [cli-interval](https://github.com/TabDigital/cli-interval).
 
 ```bash
-interval -t 1s "echo $RANDOM" | plot
+interval -t 1s "echo \$RANDOM" | plot
 ```
 
 - Getting values from JSON documents
